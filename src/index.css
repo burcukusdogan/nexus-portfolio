@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html { scroll-behavior: smooth; }
+.nav-link { @apply inline-flex items-center font-medium text-gray-700 hover:text-nexus-blue py-2; }
+
+/* --- Reusable utilities for your site --- */
+.btn-primary{
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold text-white shadow-card transition-transform hover:scale-[1.02];
+  background-image: linear-gradient(90deg,#F86E54,#FF8A65);
+}
+.btn-secondary{
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold text-nexus-navy border border-white/30 bg-white/10 backdrop-blur-md hover:bg-white/20;
+}
+.card{ @apply rounded-2xl border border-white/10 bg-white/5 shadow-card; }
+.section{ @apply py-16 md:py-24; }
+:root { --tw-cor1:#ff7a5c; --tw-cor2:#ff9a76; }
+html { scroll-behavior: smooth; }
+
