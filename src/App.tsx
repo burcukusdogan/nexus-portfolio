@@ -266,7 +266,7 @@ function ContactCTA() {
         <div className="mt-6 flex flex-col md:flex-row gap-4 justify-center">
           <a
             className="inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold bg-white text-nexus-navy border border-white/20"
-            href="tel:+61200000000"
+            href="tel:+61415909088"
           >
             Call 0415 909 088
           </a>
