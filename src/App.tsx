@@ -468,99 +468,98 @@ function Portfolio() {
       </section>
 
     {selectedProject && (
-      <div className="fixed inset-0 z-[100] bg-black/70 md:flex md:items-center md:justify-center md:p-4">
-        <div className="relative h-full w-full overflow-y-auto bg-white md:h-auto md:max-h-[90vh] md:max-w-5xl md:rounded-2xl md:shadow-2xl">
+      <div className="fixed inset-0 z-[100] bg-black/70 flex items-center justify-center p-3">
+        <div className="relative w-[94vw] max-w-5xl h-[86dvh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col">
           
-          {/* Mobile-safe close bar */}
-          <div className="sticky top-0 z-20 flex justify-end bg-white/95 px-4 py-3 shadow-sm backdrop-blur md:absolute md:right-4 md:top-4 md:bg-transparent md:p-0 md:shadow-none">
-            <button
-              type="button"
-              onClick={closeProject}
-              className="rounded-full bg-nexus-navy px-4 py-2 text-sm font-semibold text-white shadow hover:bg-nexus-blue"
-            >
-              Close ✕
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={closeProject}
+            className="absolute right-3 top-3 z-30 rounded-full bg-nexus-navy px-4 py-2 text-sm font-semibold text-white shadow-lg"
+          >
+            Close ✕
+          </button>
 
-          <div className="grid md:grid-cols-[1fr_320px]">
-            <div className="bg-gray-100 flex items-center justify-center min-h-[320px] md:min-h-[600px] p-4 md:p-6">
-              <img
-                src={selectedProject.images[currentImageIndex]}
-                alt={`${selectedProject.title} preview ${currentImageIndex + 1}`}
-                className="max-h-[65vh] md:max-h-[70vh] max-w-full object-contain rounded-lg border border-gray-200 bg-white shadow"
-              />
-            </div>
-
-            <div className="p-6 md:p-8 flex flex-col">
-              <h3 className="text-2xl font-semibold text-nexus-navy">
-                {selectedProject.title}
-              </h3>
-
-              <p className="mt-3 text-gray-600 leading-7">
-                {selectedProject.desc}
-              </p>
-
-              <p className="mt-4 text-sm text-gray-500">
-                Image {currentImageIndex + 1} of {selectedProject.images.length}
-              </p>
-
-              <div className="mt-6 flex gap-3">
-                <button
-                  type="button"
-                  onClick={showPrev}
-                  className="inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold text-nexus-navy border border-gray-200 bg-white hover:bg-gray-50"
-                >
-                  Previous
-                </button>
-
-                <button
-                  type="button"
-                  onClick={showNext}
-                  className="inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold text-white shadow-card"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(90deg,var(--tw-cor1),var(--tw-cor2))",
-                  }}
-                >
-                  Next
-                </button>
+          <div className="overflow-y-auto h-full">
+            <div className="grid md:grid-cols-[1fr_320px]">
+              <div className="bg-gray-100 flex items-center justify-center p-4 pt-14 md:p-6 min-h-[280px] md:min-h-[600px]">
+                <img
+                  src={selectedProject.images[currentImageIndex]}
+                  alt={`${selectedProject.title} preview ${currentImageIndex + 1}`}
+                  className="max-h-[42vh] md:max-h-[70vh] max-w-full object-contain rounded-lg border border-gray-200 bg-white shadow"
+                />
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-2">
-                {selectedProject.images.map((image, index) => (
+              <div className="p-6 md:p-8 flex flex-col">
+                <h3 className="text-2xl font-semibold text-nexus-navy">
+                  {selectedProject.title}
+                </h3>
+
+                <p className="mt-3 text-gray-600 leading-7">
+                  {selectedProject.desc}
+                </p>
+
+                <p className="mt-4 text-sm text-gray-500">
+                  Image {currentImageIndex + 1} of {selectedProject.images.length}
+                </p>
+
+                <div className="mt-6 flex gap-3">
                   <button
-                    key={image}
                     type="button"
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`h-16 w-16 overflow-hidden rounded-lg border ${
-                      currentImageIndex === index
-                        ? "border-nexus-blue ring-2 ring-nexus-blue/20"
-                        : "border-gray-200"
-                    }`}
+                    onClick={showPrev}
+                    className="inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold text-nexus-navy border border-gray-200 bg-white hover:bg-gray-50"
                   >
-                    <img
-                      src={image}
-                      alt={`${selectedProject.title} thumbnail ${index + 1}`}
-                      className="h-full w-full object-cover"
-                    />
+                    Previous
                   </button>
-                ))}
-              </div>
 
-              {selectedProject.liveUrl && (
-                <a
-                  href={selectedProject.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-8 inline-flex w-fit items-center rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-card"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(90deg,var(--tw-cor1),var(--tw-cor2))",
-                  }}
-                >
-                  Visit Live Site
-                </a>
-              )}
+                  <button
+                    type="button"
+                    onClick={showNext}
+                    className="inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold text-white shadow-card"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(90deg,var(--tw-cor1),var(--tw-cor2))",
+                    }}
+                  >
+                    Next
+                  </button>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {selectedProject.images.map((image, index) => (
+                    <button
+                      key={image}
+                      type="button"
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`h-16 w-16 overflow-hidden rounded-lg border ${
+                        currentImageIndex === index
+                          ? "border-nexus-blue ring-2 ring-nexus-blue/20"
+                          : "border-gray-200"
+                      }`}
+                    >
+                      <img
+                        src={image}
+                        alt={`${selectedProject.title} thumbnail ${index + 1}`}
+                        className="h-full w-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+
+                {selectedProject.liveUrl && (
+                  <a
+                    href={selectedProject.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-8 inline-flex w-fit items-center rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-card"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(90deg,var(--tw-cor1),var(--tw-cor2))",
+                    }}
+                  >
+                    Visit Live Site
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </div>
