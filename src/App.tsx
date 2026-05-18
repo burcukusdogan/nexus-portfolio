@@ -34,6 +34,7 @@ export default function App() {
         <WeddingInvitations />
         <Process />
         <AboutSection />
+        <WebsiteBasics />
         <Support />
         <FAQ />
       </main>
@@ -51,12 +52,13 @@ function Header() {
       {[
         ["Services", "#services"],
         ["Portfolio", "#portfolio"],
-        ["Wedding Invitations", "#wedding-invitations"],
+        //["Wedding Invitations", "#wedding-invitations"],
         ["Process", "#process"],
         ["About", "#about"],
-        ["FAQ", "#faq"],
+        //["Website Basics", "#website-basics"],
+        //["FAQ", "#faq"],
         ["Contact", "#contact"],
-        ["Support", "#support"],
+       // ["Support", "#support"],
       ].map(([label, href]) => (
         <li key={label}>
           <a
@@ -214,6 +216,7 @@ function Services() {
   return (
     <section id="services" className="scroll-mt-24 py-16 md:py-24 bg-white">
       <div className="mx-auto max-w-6xl px-6">
+      <div className="rounded-[2rem] bg-white border border-gray-100 shadow-card px-6 py-12 md:px-10 md:py-16">
         <h2 className="text-2xl md:text-3xl font-semibold text-nexus-navy text-center">
           Services & Packages
         </h2>
@@ -251,6 +254,7 @@ function Services() {
             </article>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );
@@ -855,7 +859,7 @@ function AboutSection() {
           </a>
         </div>
 
-        <div className="rounded-2xl border border-gray-100 bg-white shadow-card p-6">
+        <div className="rounded-2xl border border-nexus-blue/10 bg-gradient-to-br from-white to-nexus-blue/5 shadow-card p-6 hover:-translate-y-1 transition-transform">
           <p className="text-sm text-gray-600">
             “My goal is to keep things simple, communicate clearly, and focus on what actually works for your business.”
           </p>
@@ -866,6 +870,114 @@ function AboutSection() {
   );
 }
 
+function WebsiteBasics() {
+  const basics = [
+    {
+      title: "Domain Name",
+      desc: "Your domain is your website address, such as yourbusiness.com.au. Clients should own their own domain name.",
+    },
+    {
+      title: "Website Hosting",
+      desc: "Hosting keeps your website online and accessible. I manage the technical setup so your website connects properly.",
+    },
+    {
+      title: "Business Email",
+      desc: "Professional email addresses like info@yourbusiness.com.au are separate from website hosting and are usually setup through Google Workspace.",
+    },
+    {
+      title: "Updates & Support",
+      desc: "Monthly support is optional. You can also request one-off updates or larger changes when needed.",
+    },
+  ];
+
+  const questions = [
+    {
+      q: "Who owns my domain and email?",
+      a: "You do. I recommend clients keep their domain name and business email accounts under their own name and payment details. I can still help setup and manage the technical side.",
+    },
+    {
+      q: "Do I need monthly support?",
+      a: "No. A monthly care plan is optional. Some clients prefer ongoing support, while others prefer to request one-off updates when needed.",
+    },
+    {
+      q: "Can I add more pages later?",
+      a: "Yes. New pages, redesigns, booking systems, blogs, or larger features can be quoted separately based on what is required.",
+    },
+    {
+      q: "Can I update content myself?",
+      a: "Yes, if needed. Some websites can include editable sections for events, news, blogs, or announcements using tools like Google Sheets, Notion, Airtable, or a CMS.",
+    },
+  ];
+
+  return (
+    <section
+      id="website-basics"
+      className="scroll-mt-24 py-16 md:py-24 bg-gradient-to-b from-white via-nexus-blue/5 to-white"
+    >
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="rounded-[2rem] bg-white border border-gray-100 shadow-card px-6 py-12 md:px-10 md:py-16">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-nexus-blue">
+              Website Basics
+            </p>
+
+            <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-nexus-navy">
+              Understanding Your Website
+            </h2>
+
+            <p className="mt-4 text-gray-600 leading-7">
+              Websites can feel confusing if you are not familiar with domains,
+              hosting, business email and ongoing support. Here is a simple
+              breakdown of how it all works.
+            </p>
+          </div>
+
+          <div className="mt-12 grid md:grid-cols-4 gap-6">
+            {basics.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-2xl border border-nexus-blue/10 bg-gradient-to-br from-white to-nexus-blue/5 shadow-card p-6 hover:-translate-y-1 transition-transform"
+              >
+                <h3 className="font-semibold text-nexus-navy">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-gray-600">
+                  {item.desc}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-12 rounded-3xl border border-nexus-blue/10 bg-[#eef7f8] p-6 md:p-8">
+            <h3 className="text-xl font-semibold text-nexus-navy">
+              Common Client Questions
+            </h3>
+
+            <div className="mt-6 grid md:grid-cols-2 gap-5">
+              {questions.map((item) => (
+                <div
+                  key={item.q}
+                  className="rounded-2xl bg-white border border-gray-100 p-5 shadow-sm"
+                >
+                  <h4 className="font-semibold text-nexus-navy">{item.q}</h4>
+                  <p className="mt-2 text-sm leading-6 text-gray-600">
+                    {item.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 rounded-2xl bg-white border border-gray-100 p-5">
+              <p className="text-sm leading-6 text-gray-600">
+                My goal is to make the website process simple and stress-free.
+                You do not need to understand every technical detail — I will
+                guide you through what is needed and explain the options clearly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 function Support() {
   return (
     <section id="support" className="scroll-mt-24 py-16 md:py-24 bg-nexus-blue/5">
@@ -893,19 +1005,10 @@ function Support() {
         </div>
 
         <div className="rounded-2xl border border-gray-100 bg-white shadow-card p-6">
-          <h3 className="font-semibold text-nexus-navy">Care Plan (Monthly)</h3>
-          <p className="mt-1 text-sm text-gray-600">Cancel any time, no lock-in.</p>
-
-          <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
-            <div className="rounded-xl border border-gray-100 p-4">
-              <div className="font-semibold text-nexus-navy">Basic</div>
-              <div className="text-gray-600 mt-1">$79 / mo</div>
-            </div>
-            <div className="rounded-xl border border-gray-100 p-4">
-              <div className="font-semibold text-nexus-navy">Plus</div>
-              <div className="text-gray-600 mt-1">$129 / mo</div>
-            </div>
-          </div>
+          <h3 className="font-semibold text-nexus-navy">Flexible Website Support</h3>
+          <p className="mt-1 text-sm text-gray-600">
+            Choose ongoing support or request one-off updates when needed.
+          </p>
 
           <a
             href="mailto:nexuswebdesignau@gmail.com"
@@ -981,18 +1084,27 @@ function FaqRow({ item }: { item: FaqItem }) {
 function Footer() {
   return (
     <footer className="bg-[#0A3D66] text-white/85">
-      <div className="mx-auto max-w-6xl px-6 py-10 grid md:grid-cols-3 gap-6">
+      <div className="mx-auto max-w-6xl px-6 py-10 grid md:grid-cols-4 gap-6">
         <div>
           <p className="text-white font-semibold">Nexus Web Design</p>
           <p className="mt-2 text-sm">Sydney, Australia</p>
         </div>
 
         <div className="text-sm space-y-2">
+          <p className="text-white font-semibold">Main</p>
           <a href="#services" className="block hover:text-white">Services</a>
           <a href="#portfolio" className="block hover:text-white">Portfolio</a>
-          <a href="#wedding-invitations" className="block hover:text-white">Wedding Invitations</a>
           <a href="#process" className="block hover:text-white">Process</a>
+          <a href="#about" className="block hover:text-white">About</a>
           <a href="#contact" className="block hover:text-white">Contact</a>
+        </div>
+
+        <div className="text-sm space-y-2">
+          <p className="text-white font-semibold">Helpful Links</p>
+          <a href="#website-basics" className="block hover:text-white">Website Basics</a>
+          <a href="#support" className="block hover:text-white">Support</a>
+          <a href="#faq" className="block hover:text-white">FAQ</a>
+          <a href="#wedding-invitations" className="block hover:text-white">Wedding Invitations</a>
         </div>
 
         <div className="text-sm">
